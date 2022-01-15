@@ -3,12 +3,9 @@ import 'dart:html' as html;
 import 'dart:js_util' as jsutil;
 import 'dart:ui' as ui;
 
+import 'package:dart_webrtc/dart_webrtc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-
-import 'package:dart_webrtc/dart_webrtc.dart';
-import 'package:dart_webrtc/src/media_stream_impl.dart';
-import 'package:webrtc_interface/webrtc_interface.dart';
 
 // An error code value to error name Map.
 // See: https://developer.mozilla.org/en-US/docs/Web/API/MediaError/code
@@ -204,7 +201,7 @@ class RTCVideoRenderer extends ValueNotifier<RTCVideoValue>
 
       final element = html.VideoElement()
         ..autoplay = true
-        ..muted = true
+        ..muted = _muted
         ..controls = false
         ..style.objectFit = _objectFit
         ..style.border = 'none'
